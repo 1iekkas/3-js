@@ -152,7 +152,7 @@ export default {
     //
     init() {
       const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath("/draco/gltf/");
+      dracoLoader.setDecoderPath("./draco/gltf/");
       let container = document.getElementById("container");
 
       this.scene = new THREE.Scene();

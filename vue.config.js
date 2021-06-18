@@ -9,7 +9,7 @@ function resolve(dir) {
 const port = process.env.port || process.env.npm_config_port || 8080
 const name = 'vue Element Admin' // page title
 module.exports = {
-  publicPath: '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: false,
