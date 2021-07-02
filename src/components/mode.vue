@@ -105,9 +105,10 @@ export default {
     //
     init() {
       const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath("/draco/gltf/");
+      dracoLoader.setDecoderPath("static/draco/gltf/");
       let container = document.getElementById("container");
-
+      const line = new THREE.GridHelper(10, 10);
+      const axisHelper = new THREE.AxesHelper(1000000);
       this.scene = new THREE.Scene();
       this.scene.background = new THREE.CubeTextureLoader()
         .setPath("static/")
@@ -119,6 +120,8 @@ export default {
           "posz.jpg",
           "negz.jpg",
         ]);
+      this.scene.add(line);
+      this.scene.add(axisHelper);   
 
       this.camera = new THREE.PerspectiveCamera(
         45,
@@ -139,8 +142,10 @@ export default {
         obj.position.set(0, 0, 0);
         let mesh = obj.children.filter((e) => e.type !== "Group");
         let group = obj.children.filter((e) => e.type == "Group");
+        console.log(group)
         if (group.length) {
           group.map((e) => (mesh = mesh.concat(e.children)));
+          group[8].rotation.y = Math.PI / 3
         }
 
         // console.log(mesh)

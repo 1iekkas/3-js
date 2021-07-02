@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <!-- <Secne /> -->
-    <!-- <Mode v-if="false" />
-    <RoomGltf /> -->
-    <ObjLoader />
+    <!-- <Mode /> -->
+    <!-- <OBJ /> -->
+    <!-- <ObjLoader /> -->
+    <!-- <Toyota /> -->
+    <!-- <Rotate /> -->
+    <!-- <FbxLoader /> -->
+    <Test />
   </div>
 </template>
 
@@ -11,14 +15,22 @@
 import Secne from './components/secne.vue'
 import Mode from './components/mode.vue'
 import ObjLoader from './components/objLoader.vue'
-import RoomGltf from './components/room-gltf.vue'
+import FbxLoader from './components/fbxLoader.vue'
+import OBJ from './components/obj.vue'
+import Toyota from './components/toyota.vue'
+import Rotate from './components/rotate.vue'
+import Test from './components/test.vue'
 export default {
   name: 'App',
   components: {
     Secne,
     Mode,
-    RoomGltf,
-    ObjLoader
+    OBJ,
+    FbxLoader,
+    ObjLoader, // 保时捷
+    Toyota, // 丰田 
+    Rotate,
+    Test
   }
 }
 </script>

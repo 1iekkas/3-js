@@ -111,6 +111,11 @@ export default {
         gum: {
           color: "#333",
         },
+        Ford_Mustang_Shelby_Head_Light_Glass: {
+           color: "black",
+          transparent: true, //是否透明
+          opacity: 0.1, //透明度
+        }
       },
       select: false,
       logo: [],
@@ -170,37 +175,14 @@ export default {
 
       const objLoader = new GLTFLoader();
       objLoader.setDRACOLoader(dracoLoader);
-      objLoader.load("static/car/c.gltf", (gltf) => {
+      objLoader.load("static/mustang/m.gltf", (gltf) => {
         //console.log(gltf);
         let obj = gltf.scene;
 
         obj.scale.set(0.3, 0.3, 0.3);
         obj.position.set(0, 0, 0);
         // console.log(obj.children);
-        this.skin = obj.children;
-        let item = this.skin.filter((e) => e.name === "body_04_pivot")[0];
-        item.rotation.set(0, 0, 0);
-        // console.log(item);
-        this.skin.map(e => e.castShadow = true)
-
-        //
-        Object.keys(this.custom).map((key) => {
-          obj.children.filter((mesh) => {
-            if (mesh.name.indexOf(key) > -1) {
-              mesh.material = new THREE.MeshStandardMaterial({
-                color: this.custom[key].color,
-                roughness: 0,
-                metalness: 0.1,
-              });
-              mesh.material.envMap = textureCube;
-              if (this.custom[key].transparent) {
-                mesh.material.transparent = this.custom[key].transparent;
-                mesh.material.opacity = this.custom[key].opacity;
-              }
-              
-            }
-          });
-        });
+        
 
         // console.log(obj);
 
@@ -279,7 +261,7 @@ export default {
         lightHelper2,
         lightHelper3 */
       );
-      //this.scene.add(new THREE.AmbientLight(0xcccccc, 0.5));
+      this.scene.add(new THREE.AmbientLight(0xcccccc, 0.5));
       this.update();
     },
 
